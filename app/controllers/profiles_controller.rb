@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 
 
           flash[:success] = "Profile updated"
-          redirect_to user_path
+          redirect_to user_path(current_user)
           
       else
           flash[:danger] = "Error occurred, profile hasn't been updated"
