@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     
         @user = current_user
         
-        @profile = @user.build_profile
+        @profile = Profile.new
     end
 
     def create
@@ -15,7 +15,6 @@ class ProfilesController < ApplicationController
        @profile = @user.build_profile(profile_params)
     
        if @profile.save
-
 
           flash[:success] = "Profile updated"
           redirect_to user_path(current_user)
