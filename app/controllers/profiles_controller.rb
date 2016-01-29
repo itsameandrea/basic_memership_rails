@@ -32,9 +32,24 @@ class ProfilesController < ApplicationController
        @user = current_user
        
        @profile = @user.profile
-       
-       
         
+    end
+    
+    def update
+        
+        @user = current_user
+        
+        @profile = @user.profile
+        
+        if @profile.update_attributes(profile_params)
+            
+          flash[:success] = "Profile updated"
+          redirect_to user_path(current_user)
+          
+        else
+          flash[:danger] = "Error occurred, profile hasn't been updated"
+          render action: :edit
+        end
     end
     
     
