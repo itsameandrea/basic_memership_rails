@@ -10,7 +10,7 @@
             <h3>Description</h3>
             <%= @user.profile.description%>
         </div>
-        <% if current_user.id.to_s == params[:id].to_s || @user.plan.id == 2%>
+        <% if current_user.id.to_s == params[:id].to_s || current_user.plan.id == 2%>
             <div class="well profile-block contact-info">
                 <h3>Contact Info</h3>
                 <%= @user.profile.phone_number %></br>
