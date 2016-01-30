@@ -2,7 +2,7 @@
     <div class="col-md-8 col-md-offset-2">
         <ul class="list-unstyled">
             <% @users.each do |u| %>
-                <% if u.profile %>
+                <% if u.profile && u != current_user %>
                     <li>
                         <div class="well row <%= cycle('white-bg', '') %>">
                             <div class="col-sm-4 text-center">
