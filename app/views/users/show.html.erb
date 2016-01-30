@@ -1,14 +1,23 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="well">
-            <%= image_tag @user.profile.avatar.url %>
-            <%= @user.profile.first_name %> <%= @user.profile.last_name %>
+    <div class="col-md-3 text-center">
+        
+        <%= image_tag @user.profile.avatar.url, class: "avatar-round"%>
+    </div>
+    <div class="col-md-6">
+        <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
+        <h3><span class="job-title text-center"><%= job_title_icon %></span><%= @user.profile.job_title%></h3>
+        <div class="well profile-block profile-description">
+            <h3>Description</h3>
             <%= @user.profile.description%>
-            <% if current_user.plan.id == 2%>
-                <%= @user.profile.phone_number %>
-                <%= @user.profile.contact_email %>
-            <% end %>
         </div>
+        
+        <% if current_user.plan.id == 1%>
+        <div class="well profile-block contact-info">
+            <h3>Contact Info</h3>
+            <%= @user.profile.phone_number %></br>
+            <%= @user.profile.contact_email %></br>
+        </div>
+        <% end %>
     </div>
 </div>
 
