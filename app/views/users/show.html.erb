@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="well">
-            <p class="text-center"><%= @user.profile.first_name %> <%= @user.profile.last_name %></p>
-            <p class="text-center"><%= @user.profile.job_title %></p>
-            <p class="text-center"><%= @user.profile.description%></p>
+            <%= image_tag @user.profile.avatar.url %>
+            <%= @user.profile.first_name %> <%= @user.profile.last_name %>
+            <%= @user.profile.description%>
             <% if current_user.plan.id == 2%>
-                <p class="text-center"><%= @user.profile.phone_number %></p>
-                <p class="text-center"><%= @user.profile.contact_email %></p>
+                <%= @user.profile.phone_number %>
+                <%= @user.profile.contact_email %>
             <% end %>
         </div>
     </div>
